@@ -16,7 +16,6 @@ import {
 
 const Home = () => {
   return (
-  return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative py-24 px-4 overflow-hidden">
