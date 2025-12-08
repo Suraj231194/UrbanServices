@@ -71,7 +71,12 @@ const Booking = () => {
           return;
         }
       } else {
-        setService(services);
+        const customName = searchParams.get("customName");
+        if (customName) {
+          setService({ ...services, name: customName });
+        } else {
+          setService(services);
+        }
       }
 
       setPageLoading(false);

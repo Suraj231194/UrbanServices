@@ -6,7 +6,7 @@ import { Star, Clock, ArrowLeft, Check } from "lucide-react";
 
 const services = [
   {
-    id: 1,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa", // Electrical (Fallback)
     name: "AC Service & Repair",
     description: "Complete AC maintenance including filter cleaning and gas check.",
     price: 599,
@@ -15,7 +15,7 @@ const services = [
     features: ["Filter cleaning", "Gas pressure check", "Drain pipe cleaning", "Performance test"]
   },
   {
-    id: 2,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa", // Electrical (Fallback)
     name: "Refrigerator Repair",
     description: "Expert repair for all refrigerator brands and models.",
     price: 399,
@@ -24,7 +24,7 @@ const services = [
     features: ["Cooling issue fix", "Gas refilling", "Part replacement", "Thermostat check"]
   },
   {
-    id: 3,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "Washing Machine Repair",
     description: "Fixing all types of washing machine issues.",
     price: 499,
@@ -33,7 +33,7 @@ const services = [
     features: ["Drum cleaning", "Motor repair", "Water inlet fix", "Spin issue resolution"]
   },
   {
-    id: 4,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "Microwave Repair",
     description: "Safety check and repair for microwaves and ovens.",
     price: 349,
@@ -42,7 +42,7 @@ const services = [
     features: ["Heating issue fix", "Panel repair", "Magnetron check", "Door latch fix"]
   },
   {
-    id: 5,
+    id: "05979ff3-df9c-4038-b5b2-2e67917059d6", // Plumbing
     name: "Water Purifier Service",
     description: "Filter change and general service for RO/UV purifiers.",
     price: 449,
@@ -51,7 +51,7 @@ const services = [
     features: ["Filter replacement", "TDS check", "Tank cleaning", "Leakage fix"]
   },
   {
-    id: 6,
+    id: "05979ff3-df9c-4038-b5b2-2e67917059d6", // Plumbing
     name: "Geyser Repair",
     description: "Heating element check and tank cleaning for geysers.",
     price: 399,
@@ -121,7 +121,7 @@ const Appliance = () => {
                   <Button
                     className="w-full font-semibold shadow-lg shadow-primary/20"
                     size="lg"
-                    onClick={() => navigate(`/booking?service=${service.id}&category=appliance`)}
+                    onClick={() => navigate(`/booking?service=${service.id}&category=appliance&customName=${encodeURIComponent(service.name)}`)}
                   >
                     Book Now
                   </Button>
