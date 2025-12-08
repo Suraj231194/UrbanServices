@@ -42,7 +42,7 @@ const Booking = () => {
       setUser(session.user);
 
       // Fetch service details
-      let query = supabase.from("services").select("*").eq("is_active", true);
+      let query = supabase.from("services").select("*");
 
       if (serviceId) {
         query = query.eq("id", serviceId);
@@ -55,7 +55,6 @@ const Booking = () => {
         const { data: fallbackService } = await supabase
           .from("services")
           .select("*")
-          .eq("is_active", true)
           .limit(1)
           .single();
 
