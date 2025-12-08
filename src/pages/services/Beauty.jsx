@@ -6,7 +6,7 @@ import { Star, Clock, ArrowLeft, Check } from "lucide-react";
 
 const services = [
   {
-    id: 1,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Salon at Home",
     description: "Premium salon services including haircut, styling, and grooming.",
     price: 999,
@@ -15,7 +15,7 @@ const services = [
     features: ["Haircut & Styling", "Beard Grooming", "Head Massage", "Clean-up"]
   },
   {
-    id: 2,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Spa Therapy",
     description: "Relaxing spa treatments to rejuvenate your body and mind.",
     price: 1499,
@@ -24,7 +24,7 @@ const services = [
     features: ["Full Body Massage", "Aromatherapy", "Foot Reflexology", "Steam Bath"]
   },
   {
-    id: 3,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Manicure & Pedicure",
     description: "Complete hand and foot care with premium products.",
     price: 799,
@@ -33,7 +33,7 @@ const services = [
     features: ["Cuticle Care", "Scrub & Massage", "Nail Paint", "Tan Removal"]
   },
   {
-    id: 4,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Facial & Cleanup",
     description: "Skin rejuvenating facials for a glowing complexion.",
     price: 1299,
@@ -42,7 +42,7 @@ const services = [
     features: ["Deep Cleansing", "Exfoliation", "Face Mask", "Moisturizing"]
   },
   {
-    id: 5,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Hair Color & Treatment",
     description: "Professional hair coloring and spa treatments.",
     price: 1999,
@@ -51,7 +51,7 @@ const services = [
     features: ["Global Color", "Root Touch-up", "Hair Spa", "Damage Repair"]
   },
   {
-    id: 6,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Waxing & Threading",
     description: "Hygienic and painless hair removal services.",
     price: 499,
@@ -121,7 +121,7 @@ const Beauty = () => {
                   <Button
                     className="w-full font-semibold shadow-lg shadow-primary/20"
                     size="lg"
-                    onClick={() => navigate(`/booking?service=${service.id}&category=beauty`)}
+                    onClick={() => navigate(`/booking?service=${service.id}&category=beauty&customName=${encodeURIComponent(service.name)}`)}
                   >
                     Book Now
                   </Button>

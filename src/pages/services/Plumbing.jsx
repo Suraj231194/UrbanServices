@@ -6,7 +6,7 @@ import { Star, Clock, ArrowLeft, Check } from "lucide-react";
 
 const services = [
   {
-    id: 1,
+    id: "05979ff3-df9c-4038-b5b2-2e67917059d6",
     name: "Leakage Repair",
     description: "Fixing leaks in taps, pipes, and sanitary ware.",
     price: 299,
@@ -15,7 +15,7 @@ const services = [
     features: ["Tap repair", "Pipe joint sealing", "Valve replacement", "Leak detection"]
   },
   {
-    id: 2,
+    id: "05979ff3-df9c-4038-b5b2-2e67917059d6",
     name: "Drain Cleaning",
     description: "Unclogging drains and pipes for smooth flow.",
     price: 399,
@@ -24,7 +24,7 @@ const services = [
     features: ["Sink unclogging", "Drain pipe cleaning", "Chemical treatment", "Blockage removal"]
   },
   {
-    id: 3,
+    id: "05979ff3-df9c-4038-b5b2-2e67917059d6",
     name: "Bathroom Fitting Installation",
     description: "Installation of taps, showers, and other bathroom fixtures.",
     price: 499,
@@ -33,7 +33,7 @@ const services = [
     features: ["Tap installation", "Shower setup", "Towel rod fixing", "Mirror mounting"]
   },
   {
-    id: 4,
+    id: "05979ff3-df9c-4038-b5b2-2e67917059d6",
     name: "Toilet Repair",
     description: "Repairing flush tanks, seat covers, and leakage.",
     price: 599,
@@ -42,7 +42,7 @@ const services = [
     features: ["Flush repair", "Seat replacement", "Leakage fix", "Cistern check"]
   },
   {
-    id: 5,
+    id: "05979ff3-df9c-4038-b5b2-2e67917059d6",
     name: "Water Tank Cleaning",
     description: "Deep cleaning and sanitization of overhead water tanks.",
     price: 999,
@@ -51,7 +51,7 @@ const services = [
     features: ["Sludge removal", "High-pressure cleaning", "Anti-bacterial treatment", "Tank inspection"]
   },
   {
-    id: 6,
+    id: "05979ff3-df9c-4038-b5b2-2e67917059d6",
     name: "Full Home Plumbing Check",
     description: "Comprehensive inspection of all plumbing systems.",
     price: 799,
@@ -121,7 +121,7 @@ const Plumbing = () => {
                   <Button
                     className="w-full font-semibold shadow-lg shadow-primary/20"
                     size="lg"
-                    onClick={() => navigate(`/booking?service=${service.id}&category=plumbing`)}
+                    onClick={() => navigate(`/booking?service=${service.id}&category=plumbing&customName=${encodeURIComponent(service.name)}`)}
                   >
                     Book Now
                   </Button>

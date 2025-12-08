@@ -6,7 +6,7 @@ import { Star, Clock, ArrowLeft, Check } from "lucide-react";
 
 const services = [
   {
-    id: 1,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "Switch & Socket Repair",
     description: "Repair or replacement of faulty switches and sockets.",
     price: 199,
@@ -15,7 +15,7 @@ const services = [
     features: ["Switch replacement", "Socket testing", "Wiring check", "Safety inspection"]
   },
   {
-    id: 2,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "Fan Installation & Repair",
     description: "Installation and repair of ceiling and exhaust fans.",
     price: 299,
@@ -24,7 +24,7 @@ const services = [
     features: ["Fan mounting", "Regulator change", "Capacitor replacement", "Noise reduction"]
   },
   {
-    id: 3,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "Light Installation",
     description: "Installation of tube lights, fancy lights, and chandeliers.",
     price: 249,
@@ -33,7 +33,7 @@ const services = [
     features: ["Drilling & mounting", "Wiring connection", "Bulb replacement", "Fixture check"]
   },
   {
-    id: 4,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "MCB & Fuse Repair",
     description: "Fixing tripping MCBs and blown fuses.",
     price: 399,
@@ -42,7 +42,7 @@ const services = [
     features: ["Load check", "MCB replacement", "Fuse wire change", "Circuit testing"]
   },
   {
-    id: 5,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "Inverter Installation",
     description: "Setup and connection of home inverter systems.",
     price: 599,
@@ -51,7 +51,7 @@ const services = [
     features: ["Battery connection", "Wiring setup", "Load testing", "Safety check"]
   },
   {
-    id: 6,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "Full Home Wiring Check",
     description: "Comprehensive inspection of electrical wiring.",
     price: 999,
@@ -121,7 +121,7 @@ const Electrical = () => {
                   <Button
                     className="w-full font-semibold shadow-lg shadow-primary/20"
                     size="lg"
-                    onClick={() => navigate(`/booking?service=${service.id}&category=electrical`)}
+                    onClick={() => navigate(`/booking?service=${service.id}&category=electrical&customName=${encodeURIComponent(service.name)}`)}
                   >
                     Book Now
                   </Button>

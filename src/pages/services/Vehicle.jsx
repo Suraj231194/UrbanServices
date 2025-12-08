@@ -6,7 +6,7 @@ import { Star, Clock, ArrowLeft, Check } from "lucide-react";
 
 const services = [
   {
-    id: 1,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "Car Wash & Detailing",
     description: "Complete exterior and interior cleaning for your car.",
     price: 699,
@@ -15,7 +15,7 @@ const services = [
     features: ["Foam wash", "Interior vacuuming", "Dashboard polishing", "Tyre dressing"]
   },
   {
-    id: 2,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "Bike Service",
     description: "General service and checkup for two-wheelers.",
     price: 399,
@@ -24,7 +24,7 @@ const services = [
     features: ["Oil change", "Brake check", "Chain lubrication", "Wash & polish"]
   },
   {
-    id: 3,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "Car Interior Spa",
     description: "Deep cleaning and sanitization of car interiors.",
     price: 1299,
@@ -33,7 +33,7 @@ const services = [
     features: ["Seat shampooing", "Roof cleaning", "Carpet extraction", "Odor removal"]
   },
   {
-    id: 4,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "Car Polish & Wax",
     description: "Restore your car's shine with premium polishing.",
     price: 999,
@@ -42,7 +42,7 @@ const services = [
     features: ["Machine polishing", "Wax coating", "Scratch removal", "Paint protection"]
   },
   {
-    id: 5,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "Tyre Puncture Repair",
     description: "On-spot puncture repair for tubeless tyres.",
     price: 199,
@@ -51,7 +51,7 @@ const services = [
     features: ["Leak detection", "Patch repair", "Air filling", "Wheel check"]
   },
   {
-    id: 6,
+    id: "0ae64996-a0ed-4851-8f46-eb87e680acfa",
     name: "Battery Jumpstart",
     description: "Emergency battery jumpstart service.",
     price: 299,
@@ -121,7 +121,7 @@ const Vehicle = () => {
                   <Button
                     className="w-full font-semibold shadow-lg shadow-primary/20"
                     size="lg"
-                    onClick={() => navigate(`/booking?service=${service.id}&category=vehicle`)}
+                    onClick={() => navigate(`/booking?service=${service.id}&category=vehicle&customName=${encodeURIComponent(service.name)}`)}
                   >
                     Book Now
                   </Button>

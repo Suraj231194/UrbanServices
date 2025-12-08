@@ -6,7 +6,7 @@ import { Star, Clock, ArrowLeft, Check } from "lucide-react";
 
 const services = [
   {
-    id: 1,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Interior Painting",
     description: "Professional painting for interior walls and ceilings.",
     price: 12,
@@ -15,7 +15,7 @@ const services = [
     features: ["Wall preparation", "Primer application", "Two coats of paint", "Post-paint cleanup"]
   },
   {
-    id: 2,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Exterior Painting",
     description: "Weather-proof painting for building exteriors.",
     price: 15,
@@ -24,7 +24,7 @@ const services = [
     features: ["Crack filling", "Waterproofing", "Weather coat", "Scaffolding setup"]
   },
   {
-    id: 3,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Texture Painting",
     description: "Decorative texture designs for feature walls.",
     price: 45,
@@ -33,7 +33,7 @@ const services = [
     features: ["Design consultation", "Base coat", "Texture application", "Protective finish"]
   },
   {
-    id: 4,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Wood Polishing",
     description: "Polishing and varnishing for doors, windows, and furniture.",
     price: 35,
@@ -42,7 +42,7 @@ const services = [
     features: ["Sanding", "Stain application", "PU/Melamine polish", "Gloss/Matte finish"]
   },
   {
-    id: 5,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Waterproofing",
     description: "Solutions for damp walls and leakage issues.",
     price: 25,
@@ -51,7 +51,7 @@ const services = [
     features: ["Leak detection", "Chemical treatment", "Crack sealing", "Warranty provided"]
   },
   {
-    id: 6,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Rental Painting",
     description: "Quick and affordable painting for rental properties.",
     price: 8,
@@ -121,7 +121,7 @@ const Painting = () => {
                   <Button
                     className="w-full font-semibold shadow-lg shadow-primary/20"
                     size="lg"
-                    onClick={() => navigate(`/booking?service=${service.id}&category=painting`)}
+                    onClick={() => navigate(`/booking?service=${service.id}&category=painting&customName=${encodeURIComponent(service.name)}`)}
                   >
                     Book Now
                   </Button>

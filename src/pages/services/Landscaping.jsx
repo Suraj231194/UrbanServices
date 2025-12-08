@@ -7,7 +7,7 @@ import { Clock, Star, ArrowLeft, Check } from "lucide-react";
 
 const services = [
   {
-    id: 1,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Lawn Mowing",
     price: 499,
     duration: 45,
@@ -16,7 +16,7 @@ const services = [
     features: ["Grass cutting", "Edging along pathways", "Clippings removal", "Equipment provided"]
   },
   {
-    id: 2,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Garden Maintenance",
     price: 899,
     duration: 90,
@@ -25,7 +25,7 @@ const services = [
     features: ["Weed removal", "Soil aeration", "Fertilizer application", "General cleanup"]
   },
   {
-    id: 3,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Tree Trimming",
     price: 799,
     duration: 75,
@@ -34,7 +34,7 @@ const services = [
     features: ["Branch pruning", "Shape maintenance", "Safety assessment", "Debris disposal"]
   },
   {
-    id: 4,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Plant Care & Pruning",
     price: 599,
     duration: 60,
@@ -43,7 +43,7 @@ const services = [
     features: ["Shrub pruning", "Deadheading flowers", "Pest check", "Watering advice"]
   },
   {
-    id: 5,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Landscape Design",
     price: 2999,
     duration: 180,
@@ -52,7 +52,7 @@ const services = [
     features: ["Site analysis", "Custom design plan", "Plant selection", "Layout visualization"]
   },
   {
-    id: 6,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Irrigation System Setup",
     price: 1999,
     duration: 120,
@@ -122,7 +122,7 @@ const Landscaping = () => {
                   <Button
                     className="w-full font-semibold shadow-lg shadow-primary/20"
                     size="lg"
-                    onClick={() => navigate(`/booking?service=${service.id}&category=landscaping`)}
+                    onClick={() => navigate(`/booking?service=${service.id}&category=landscaping&customName=${encodeURIComponent(service.name)}`)}
                   >
                     Book Now
                   </Button>

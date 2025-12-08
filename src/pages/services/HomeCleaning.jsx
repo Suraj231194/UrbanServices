@@ -6,7 +6,7 @@ import { Star, Clock, ArrowLeft, Check } from "lucide-react";
 
 const services = [
   {
-    id: 1,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Deep Home Cleaning",
     description: "Comprehensive cleaning of entire home including hard-to-reach areas.",
     price: 2499,
@@ -15,7 +15,7 @@ const services = [
     features: ["Floor scrubbing", "Cobweb removal", "Window cleaning", "Furniture dusting"]
   },
   {
-    id: 2,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Regular House Cleaning",
     description: "Standard cleaning service for regular maintenance of your home.",
     price: 1299,
@@ -24,7 +24,7 @@ const services = [
     features: ["Sweeping & Mopping", "Dusting surfaces", "Kitchen counter wipe", "Bathroom cleaning"]
   },
   {
-    id: 3,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Kitchen Deep Cleaning",
     description: "Thorough kitchen cleaning including appliances, cabinets, and chimney.",
     price: 1499,
@@ -33,7 +33,7 @@ const services = [
     features: ["Chimney degreasing", "Cabinet interior", "Appliance exterior", "Sink sanitization"]
   },
   {
-    id: 4,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Bathroom Cleaning",
     description: "Complete bathroom sanitization and deep cleaning service.",
     price: 899,
@@ -42,7 +42,7 @@ const services = [
     features: ["Tile scrubbing", "Toilet sanitization", "Mirror cleaning", "Tap polishing"]
   },
   {
-    id: 5,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Sofa & Carpet Cleaning",
     description: "Professional steam cleaning for sofas and carpets.",
     price: 1799,
@@ -51,7 +51,7 @@ const services = [
     features: ["Vacuuming", "Stain removal", "Shampooing", "Drying"]
   },
   {
-    id: 6,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Move-in/Move-out Cleaning",
     description: "Complete property cleaning before moving in or after moving out.",
     price: 3499,
@@ -60,7 +60,7 @@ const services = [
     features: ["Deep cleaning all rooms", "Cabinet interiors", "Balcony cleaning", "Spot removal"]
   },
   {
-    id: 7,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Window & Glass Cleaning",
     description: "Sparkling clean windows and glass surfaces throughout your home.",
     price: 699,
@@ -69,7 +69,7 @@ const services = [
     features: ["Glass pane cleaning", "Track cleaning", "Grill dusting", "Streak-free finish"]
   },
   {
-    id: 8,
+    id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c",
     name: "Post-Renovation Cleaning",
     description: "Thorough cleaning after construction or renovation work.",
     price: 4999,
@@ -139,7 +139,7 @@ const HomeCleaning = () => {
                   <Button
                     className="w-full font-semibold shadow-lg shadow-primary/20"
                     size="lg"
-                    onClick={() => navigate(`/booking?service=${service.id}&category=home-cleaning`)}
+                    onClick={() => navigate(`/booking?service=${service.id}&category=home-cleaning&customName=${encodeURIComponent(service.name)}`)}
                   >
                     Book Now
                   </Button>

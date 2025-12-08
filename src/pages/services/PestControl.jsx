@@ -6,12 +6,12 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, Star, ArrowLeft } from "lucide-react";
 
 const services = [
-  { id: 1, name: "Cockroach Control", price: 699, duration: 60, rating: 4.7 },
-  { id: 2, name: "Termite Treatment", price: 1499, duration: 120, rating: 4.8 },
-  { id: 3, name: "Bed Bug Treatment", price: 999, duration: 90, rating: 4.6 },
-  { id: 4, name: "Rodent Control", price: 799, duration: 75, rating: 4.7 },
-  { id: 5, name: "General Pest Control", price: 899, duration: 80, rating: 4.8 },
-  { id: 6, name: "Mosquito Control", price: 599, duration: 50, rating: 4.5 },
+  { id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c", name: "Cockroach Control", price: 699, duration: 60, rating: 4.7 },
+  { id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c", name: "Termite Treatment", price: 1499, duration: 120, rating: 4.8 },
+  { id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c", name: "Bed Bug Treatment", price: 999, duration: 90, rating: 4.6 },
+  { id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c", name: "Rodent Control", price: 799, duration: 75, rating: 4.7 },
+  { id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c", name: "General Pest Control", price: 899, duration: 80, rating: 4.8 },
+  { id: "fd8aaf51-5adc-4f01-906c-3ca63e4e727c", name: "Mosquito Control", price: 599, duration: 50, rating: 4.5 },
 ];
 
 const PestControl = () => {
@@ -52,9 +52,9 @@ const PestControl = () => {
                   <span className="text-2xl font-bold">₹{service.price}</span>
                   <Badge>Certified</Badge>
                 </div>
-                <Button 
-                  className="w-full" 
-                  onClick={() => navigate(`/booking?service=${service.id}&category=pest-control`)}
+                <Button
+                  className="w-full"
+                  onClick={() => navigate(`/booking?service=${service.id}&category=pest-control&customName=${encodeURIComponent(service.name)}`)}
                 >
                   Book Now
                 </Button>

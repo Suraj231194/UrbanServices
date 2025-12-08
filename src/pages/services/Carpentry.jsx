@@ -6,12 +6,12 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, Star, ArrowLeft } from "lucide-react";
 
 const services = [
-  { id: 1, name: "Furniture Assembly", price: 499, duration: 60, rating: 4.7 },
-  { id: 2, name: "Door Repair & Installation", price: 699, duration: 75, rating: 4.8 },
-  { id: 3, name: "Cabinet Making", price: 1999, duration: 180, rating: 4.6 },
-  { id: 4, name: "Shelving Installation", price: 599, duration: 50, rating: 4.7 },
-  { id: 5, name: "Wood Polishing", price: 799, duration: 90, rating: 4.5 },
-  { id: 6, name: "Custom Woodwork", price: 2499, duration: 240, rating: 4.8 },
+  { id: "05979ff3-df9c-4038-b5b2-2e67917059d6", name: "Furniture Assembly", price: 499, duration: 60, rating: 4.7 },
+  { id: "05979ff3-df9c-4038-b5b2-2e67917059d6", name: "Door Repair & Installation", price: 699, duration: 75, rating: 4.8 },
+  { id: "05979ff3-df9c-4038-b5b2-2e67917059d6", name: "Cabinet Making", price: 1999, duration: 180, rating: 4.6 },
+  { id: "05979ff3-df9c-4038-b5b2-2e67917059d6", name: "Shelving Installation", price: 599, duration: 50, rating: 4.7 },
+  { id: "05979ff3-df9c-4038-b5b2-2e67917059d6", name: "Wood Polishing", price: 799, duration: 90, rating: 4.5 },
+  { id: "05979ff3-df9c-4038-b5b2-2e67917059d6", name: "Custom Woodwork", price: 2499, duration: 240, rating: 4.8 },
 ];
 
 const Carpentry = () => {
@@ -52,9 +52,9 @@ const Carpentry = () => {
                   <span className="text-2xl font-bold">₹{service.price}</span>
                   <Badge>Craftsman</Badge>
                 </div>
-                <Button 
-                  className="w-full" 
-                  onClick={() => navigate(`/booking?service=${service.id}&category=carpentry`)}
+                <Button
+                  className="w-full"
+                  onClick={() => navigate(`/booking?service=${service.id}&category=carpentry&customName=${encodeURIComponent(service.name)}`)}
                 >
                   Book Now
                 </Button>
