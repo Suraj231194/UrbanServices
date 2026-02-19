@@ -63,31 +63,116 @@ const Payment = () => {
     loadBooking();
   }, [bookingId, navigate, toast]);
 
-  const handleCompletePayment = async () => {
+  const loadRazorpay = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
+
+  const handleRazorpayPayment = async () => {
     if (!booking) return;
     setProcessing(true);
 
-    try {
-      const { error } = await supabase
-        .from("bookings")
-        .update({ status: "confirmed" })
-        .eq("id", booking.id);
+    const res = await loadRazorpay();
 
-      if (error) throw error;
-
+    if (!res) {
       toast({
-        title: "Payment Successful!",
-        description: "Your booking has been confirmed.",
-      });
-
-      navigate(`/booking-confirmation?bookingId=${booking.id}`);
-    } catch (error) {
-      toast({
-        title: "Payment Failed",
-        description: "Something went wrong while processing payment.",
+        title: "Error",
+        description: "Razorpay SDK failed to load. Are you online?",
         variant: "destructive",
       });
-    } finally {
+      setProcessing(false);
+      return;
+    }
+
+    try {
+      // 1. Create Order
+      const { data: orderData, error: orderError } = await supabase.functions.invoke('create-razorpay-order', {
+        body: { bookingId: booking.id, amount: booking.total_price },
+      });
+
+      if (orderError) throw orderError;
+      if (!orderData || !orderData.id) throw new Error("Failed to create order");
+
+
+      // 2. Options for Razorpay
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+        amount: orderData.amount,
+        currency: orderData.currency,
+        name: "UrbanServices",
+        description: `Payment for ${service?.name}`,
+        // image: "https://your-logo-url.com/logo.png", // Optional
+        order_id: orderData.id,
+        handler: async function (response) {
+          // 3. Verify Payment
+          try {
+            const { data: verifyData, error: verifyError } = await supabase.functions.invoke('verify-razorpay-payment', {
+              body: {
+                orderCreationId: orderData.id,
+                razorpayPaymentId: response.razorpay_payment_id,
+                razorpaySignature: response.razorpay_signature,
+              },
+            });
+
+            if (verifyError || !verifyData.verified) {
+              throw new Error("Payment verification failed");
+            }
+
+            // 4. Update Booking Status (if not done by webhook/edge function)
+            const { error: updateError } = await supabase
+              .from("bookings")
+              .update({ status: "confirmed" })
+              .eq("id", booking.id);
+
+            if (updateError) throw updateError;
+
+            toast({
+              title: "Payment Successful!",
+              description: "Your booking has been confirmed.",
+            });
+
+            navigate(`/booking-confirmation?bookingId=${booking.id}`);
+
+          } catch (err) {
+            toast({
+              title: "Payment Verification Failed",
+              description: err.message,
+              variant: "destructive",
+            });
+          }
+        },
+        prefill: {
+          name: "User Name", // You can get this from auth session
+          email: "user@example.com",
+          contact: "9999999999",
+        },
+        notes: {
+          address: "Razorpay Corporate Office",
+        },
+        theme: {
+          color: "#3399cc",
+        },
+        modal: {
+          ondismiss: () => {
+            setProcessing(false);
+          }
+        }
+      };
+
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+
+    } catch (error) {
+      toast({
+        title: "Payment Error",
+        description: error.message || "Something went wrong",
+        variant: "destructive",
+      });
       setProcessing(false);
     }
   };
@@ -175,7 +260,7 @@ const Payment = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
                   <MapPin className="w-5 h-5 text-primary mt-0.5" />
                   <div>
@@ -202,7 +287,7 @@ const Payment = () => {
                   <CreditCard className="w-5 h-5 text-primary" />
                   Payment
                 </CardTitle>
-                <CardDescription>Secure payment processing</CardDescription>
+                <CardDescription>Secure payment via Razorpay</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Price Breakdown */}
@@ -226,21 +311,21 @@ const Payment = () => {
                   </div>
                 </div>
 
-                {/* Demo Notice */}
+                {/* Secure Badge */}
                 <div className="rounded-lg border border-dashed p-4 bg-muted/30 text-sm space-y-2">
                   <p className="font-medium flex items-center gap-2">
                     <Shield className="w-4 h-4 text-green-500" />
-                    Demo Payment Mode
+                    Razorpay Secure
                   </p>
                   <p className="text-muted-foreground text-xs">
-                    No real transaction will be processed. Click below to simulate a successful payment.
+                    Your payment will be processed securely through Razorpay.
                   </p>
                 </div>
 
                 <Button
                   className="w-full"
                   size="lg"
-                  onClick={handleCompletePayment}
+                  onClick={handleRazorpayPayment}
                   disabled={processing}
                 >
                   {processing ? (
@@ -258,7 +343,7 @@ const Payment = () => {
 
                 <p className="text-xs text-center text-muted-foreground flex items-center justify-center gap-1">
                   <Shield className="w-3 h-3" />
-                  Your payment is secured with encryption
+                  Your payment is secured with Encryption
                 </p>
               </CardContent>
             </Card>
