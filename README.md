@@ -1,73 +1,88 @@
-# Welcome to your Lovable project
+<div align="center">
 
-## Project info
+# 🏙️ UrbanServices
 
-**URL**: https://lovable.dev/projects/c65c6b8f-7163-4fdd-a279-3cf728cf207f
+**A Premium Services & Booking Platform**
 
-## How can I edit this code?
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
 
-There are several ways of editing your application.
+An advanced, scalable, and premium web application built to handle dynamic service bookings, including specialized NDT services and comprehensive flight reservations. Built with modern web technologies to ensure a seamless, high-performance user experience.
 
-**Use Lovable**
+</div>
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c65c6b8f-7163-4fdd-a279-3cf728cf207f) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## ✨ Features
 
-**Use your preferred IDE**
+- **Dynamic Service BookingFlow**: Smooth, intuitive checkout and reservation system for multiple service types.
+- **Flight Integrations**: Advanced multi-city flight search and filtering powered by robust API integrations.
+- **Premium User Interface**: Crafted with `shadcn/ui` and `Tailwind CSS` for a pixel-perfect, accessible, and highly responsive design.
+- **Robust Architecture**: Built on **Next.js 15** (App Router) with full **TypeScript** support for type safety and superior developer experience.
+- **Authentication & Database**: Integrated with **Supabase** for secure, real-time data management.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Core Technologies
+- **Framework**: [Next.js 15](https://nextjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Components**: [shadcn/ui](https://ui.shadcn.com/) & Radix UI primitives
+- **Icons**: [Lucide React](https://lucide.dev/)
 
-Follow these steps:
+### Data & State Management
+- **Backend/BaaS**: [Supabase](https://supabase.com/)
+- **Data Fetching**: React Query (`@tanstack/react-query`)
+- **Forms & Validation**: React Hook Form + Zod
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🚀 Getting Started
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Follow these steps to set up the project locally:
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) (v18 or higher) and `npm` installed.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### Installation
 
-**Edit a file directly in GitHub**
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Suraj231194/UrbanServices.git
+   cd UrbanServices
+   ```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-**Use GitHub Codespaces**
+3. **Environment Setup**
+   Copy the example environment file and add your actual keys.
+   ```bash
+   cp .env.example .env.local
+   ```
+   *(Ensure you fill in your Supabase and other required API keys)*
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-## What technologies are used for this project?
+5. **Open the app**
+   Navigate to [http://localhost:3000](http://localhost:3000) in your browser to see the application running.
 
-This project is built with:
+## 🤝 Contributing
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Contributions, issues, and feature requests are welcome!  
+Feel free to check out the [issues page](https://github.com/Suraj231194/UrbanServices/issues) if you want to contribute.
 
-## How can I deploy this project?
+## 📜 License
 
-Simply open [Lovable](https://lovable.dev/projects/c65c6b8f-7163-4fdd-a279-3cf728cf207f) and click on Share -> Publish.
+This project is proprietary and confidential.
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+<div align="center">
+  <b>Made with ❤️ by suraj</b>
+</div>
